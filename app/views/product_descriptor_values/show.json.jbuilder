@@ -1,0 +1,1 @@
+json.partial! "product_descriptor_values/product_descriptor_value", product_descriptor_value: @product_descriptor_value
