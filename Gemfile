@@ -69,3 +69,7 @@ gem "devise-jwt"
 gem "devise_token_auth", "~> 1.2"
 
 gem "dotenv", "~> 2.8"
+
+gem "stripe", "~> 8.5"
+
+gem "tty-spinner", "~> 0.9.3"

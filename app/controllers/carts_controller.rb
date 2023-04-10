@@ -26,10 +26,10 @@ class CartsController < ApplicationController
 
   # PATCH/PUT /carts/1
 
-def checkout
-  CartService.checkout(params[:id], @current_user_id)
-  render :show, status: :ok, location: @cart
-end
+  def checkout
+    @payment = CartService.checkout(params[:id], current_user, params[:type])
+    render partial: 'payments/payment_checkout', status: :ok, object: @payment
+  end
 
 
   def update_cart_items

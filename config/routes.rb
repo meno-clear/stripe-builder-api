@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payments
   resources :market_place_partners
   resources :product_descriptor_values
   resources :product_descriptors
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :carts
   resources :products
+  resources :payments
+  put '/payments/:id/confirm', to: 'payments#confirm', defaults: {format: :json}
   default_url_options :host => "localhost:3000"
 
   root to: 'main#index'
