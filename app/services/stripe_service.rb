@@ -40,4 +40,15 @@ class StripeService
     payment.update(status: payment_intent.status)
     return payment
   end
+
+  def self.create_new_payments_method(current_user)
+    ephemeralKey = Stripe::EphemeralKey.create({
+      customer: current_user[:customer_id],
+    }, {stripe_version: '2020-08-27'})
+    setupIntent = Stripe::SetupIntent.create({
+      customer: current_user[:customer_id]
+    })
+
+    return { customer: current_user[:customer_id], ephemeralKey: ephemeralKey[:secret], setupIntent: setupIntent[:client_secret], publishableKey: ENV['STRIPE_PUBLISHABLE_KEY']}
+  end
 end

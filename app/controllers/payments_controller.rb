@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
 
   def show
   end
-  
+
   def confirm
     StripeService.confirm_payment(@payment)
   end

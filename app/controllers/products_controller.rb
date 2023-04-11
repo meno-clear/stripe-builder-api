@@ -4,10 +4,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-  @products = Product.all.order(:market_place_partner_id)
-    if params[:category_id]
-      @products = Product.where(category_id: params[:category_id])
-    end
+    @products = Product.all.order(:market_place_partner_id)
+      if params[:category_id]
+        @products = Product.where(category_id: params[:category_id])
+      end
     @products
   end
 
