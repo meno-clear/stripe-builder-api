@@ -34,7 +34,9 @@ Rails.application.routes.draw do
   put '/payments/:id/confirm', to: 'payments#confirm', defaults: {format: :json}
   get '/plans', to: 'stripe#plans', defaults: {format: :json}
   get '/plans/:id', to: 'stripe#plan', defaults: {format: :json}
-  get '/subscriptions', to: 'stripe#new_subscription', defaults: {format: :json}
+  post '/subscriptions', to: 'stripe#new_subscription', defaults: {format: :json}
+  get '/payment_methods', to: 'stripe#payment_methods', defaults: {format: :json}
+  post '/payment_methods', to: 'stripe#new_payment_method', defaults: {format: :json}
   default_url_options :host => "localhost:3000"
 
   root to: 'main#index'
